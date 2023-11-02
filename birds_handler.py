@@ -4,7 +4,7 @@ import time
 import base64
 
 
-def customcards_on_open(hashMap,_files=None,_data=None):
+def customcards_on_open(hashMap, _files=None, _data=None):
     j = {"customcards": {
         "options": {
             "search_enabled": True,
@@ -137,5 +137,11 @@ def customcards_on_open(hashMap,_files=None,_data=None):
     return hashMap
 
 
-def custom_card_on_open(hashMap, _files=None,_data=None):
+def custom_card_on_tap(hashMap, _files=None, _data=None):
     pass
+
+
+def on_add(hashMap, _files=None, _data=None):
+    hashMap.put("ShowScreen", "Добавить птицу")
+
+    return hashMap
