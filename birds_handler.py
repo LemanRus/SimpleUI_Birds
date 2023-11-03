@@ -167,8 +167,15 @@ def save_bird(hashMap, _files=None, _data=None):
     ncl = noClass("database")
 
 
-    bird_data = {"name": bird_name, "feathers": bird_feathers, "picture": hashMap.get("")}
+    bird_data = {"name": bird_name, "feathers": bird_feathers, "picture": bird_picture}
     ncl.put(bird_name, json.dumps(bird_data,ensure_ascii=False), True)
 
+    hashMap.put("toast", "Сохранено")
 
     return hashMap()
+
+
+def add_bird_back(hashMap, _files=None, _data=None):
+    hashMap.put("ShowScreen", "Список птиц")
+
+    return hashMap
