@@ -90,7 +90,8 @@
                                 "action": "run",
                                 "type": "python",
                                 "method": "custom_card_on_tap",
-                                "postExecute": ""
+                                "postExecute": "",
+                                "listener": "CardsClick"
                             }
                         ]
                     },
@@ -232,9 +233,9 @@
                                         "Variable": "name"
                                     },
                                     {
-                                        "type": "EditTextText",
+                                        "type": "TextView",
                                         "height": "wrap_content",
-                                        "width": "wrap_content",
+                                        "width": "match_parent",
                                         "weight": "0",
                                         "Value": "Выберите цвет перьев:",
                                         "Variable": ""
