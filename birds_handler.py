@@ -97,23 +97,6 @@ def customcards_on_open(hashMap, _files=None, _data=None):
                         }
                     ]
                 },
-                {
-                    "type": "TextView",
-                    "show_by_condition": "",
-                    "Value": "@descr",
-                    "NoRefresh": False,
-                    "document_type": "",
-                    "mask": "",
-                    "Variable": "",
-                    "TextSize": "-1",
-                    "TextColor": "#6F9393",
-                    "TextBold": False,
-                    "TextItalic": True,
-                    "BackgroundColor": "",
-                    "width": "wrap_content",
-                    "height": "wrap_content",
-                    "weight": 0
-                }
             ]
         }
 
@@ -124,7 +107,6 @@ def customcards_on_open(hashMap, _files=None, _data=None):
     for i in range(0, 2):
         c = {
             "key": str(i),
-            "descr": "Pos. " + str(i),
             "val": str(random.randint(10, 10000)) + " руб.",
             "string1": "Материнская плата ASUS ROG MAXIMUS Z690 APEX",
             "string2": "Гнездо процессора LGA 1700",
