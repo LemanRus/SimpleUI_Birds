@@ -153,3 +153,22 @@ def on_add(hashMap, _files=None, _data=None):
     hashMap.put("ShowScreen", "Добавить птицу")
 
     return hashMap
+
+
+def save_bird(hashMap, _files=None, _data=None):
+    bird_name = hashMap.get("name")
+    bird_feathers = hashMap.get("feathers")
+
+    if hashMap.containsKey("gallery_picture"):
+        bird_picture = hashMap.get("gallery_picture")
+    elif hashMap.containsKey("photo_picture"):
+        bird_picture = hashMap.get("photo_picture")
+
+    ncl = noClass("database")
+
+
+    bird_data = {"name": bird_name, "feathers": bird_feathers, "picture": hashMap.get("")}
+    ncl.put(bird_name, json.dumps(bird_data,ensure_ascii=False), True)
+
+
+    return hashMap()

@@ -241,20 +241,28 @@
                                         "Variable": ""
                                     },
                                     {
-                                        "type": "TextView",
-                                        "height": "wrap_content",
-                                        "width": "match_parent",
-                                        "weight": "0",
-                                        "Value": "Также вы можете добавить фото из галереи (кнопка внизу)",
-                                        "Variable": ""
-                                    },
-                                    {
                                         "type": "SpinnerLayout",
                                         "height": "wrap_content",
                                         "width": "match_parent",
                                         "weight": "0",
                                         "Value": "Чёрный;Белый;Серый;Красный;Зелёный;Жёлтый;",
                                         "Variable": "feathers"
+                                    },
+                                    {
+                                        "type": "Button",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Сохранить",
+                                        "Variable": "save_bird"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Также вы можете добавить фото из галереи (кнопка внизу)",
+                                        "Variable": ""
                                     }
                                 ],
                                 "BackgroundColor": "",
@@ -279,7 +287,16 @@
                         "hideBottomBarScreen": true,
                         "onlineOnStart": false,
                         "onlineOnAfterStart": false,
-                        "onlineOnInput": false
+                        "onlineOnInput": false,
+                        "Handlers": [
+                            {
+                                "event": "",
+                                "action": "",
+                                "type": "",
+                                "method": "",
+                                "postExecute": ""
+                            }
+                        ]
                     },
                     {
                         "Name": "Увиденные птицы",
