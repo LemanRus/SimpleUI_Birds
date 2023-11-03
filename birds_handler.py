@@ -3,8 +3,17 @@ import random
 import time
 import base64
 
+from ru.travelfood.simple_ui import NoSQL as noClass
+
 
 def customcards_on_open(hashMap, _files=None, _data=None):
+    ncl = noClass("database")
+
+    keys = ncl.getallkeys()
+    hashMap.put("toast", str(keys))
+
+    jkeys = json.loads(keys)
+
     j = {"customcards": {
         "options": {
             "search_enabled": True,
@@ -28,7 +37,7 @@ def customcards_on_open(hashMap, _files=None, _data=None):
                         {
                             "type": "Picture",
                             "show_by_condition": "",
-                            "Value": "@pic1",
+                            "Value": "picture",
                             "NoRefresh": False,
                             "document_type": "",
                             "mask": "",
@@ -67,34 +76,35 @@ def customcards_on_open(hashMap, _files=None, _data=None):
                                     "mask": "",
                                     "Variable": ""
                                 },
+                            ]
+                        },
+                        {
+                            "type": "LinearLayout",
+                            "orientation": "vertical",
+                            "height": "wrap_content",
+                            "width": "match_parent",
+                            "weight": "1",
+                            "Elements": [
                                 {
                                     "type": "TextView",
                                     "show_by_condition": "",
-                                    "Value": "@string3",
+                                    "Value": "string1",
                                     "NoRefresh": False,
                                     "document_type": "",
                                     "mask": "",
                                     "Variable": ""
-                                }
+                                },
+                                {
+                                    "type": "TextView",
+                                    "show_by_condition": "",
+                                    "Value": "Hehey",
+                                    "NoRefresh": False,
+                                    "document_type": "",
+                                    "mask": "",
+                                    "Variable": ""
+                                },
                             ]
                         },
-                        {
-                            "type": "TextView",
-                            "show_by_condition": "",
-                            "Value": "@val",
-                            "NoRefresh": False,
-                            "document_type": "",
-                            "mask": "",
-                            "Variable": "",
-                            "TextSize": "16",
-                            "TextColor": "#DB7093",
-                            "TextBold": True,
-                            "TextItalic": False,
-                            "BackgroundColor": "",
-                            "width": "match_parent",
-                            "height": "wrap_content",
-                            "weight": 2
-                        }
                     ]
                 },
             ]
@@ -104,23 +114,39 @@ def customcards_on_open(hashMap, _files=None, _data=None):
     }
 
     j["customcards"]["cardsdata"] = []
-    for i in range(0, 2):
+
+    for i in range(0, 5):
         c = {
             "key": str(i),
-            "val": str(random.randint(10, 10000)) + " руб.",
             "string1": "Материнская плата ASUS ROG MAXIMUS Z690 APEX",
             "string2": "Гнездо процессора LGA 1700",
-            "string3": "Частотная спецификация памяти 4800 МГц"
         }
         j["customcards"]["cardsdata"].append(c)
 
-    hashMap.put("cards", json.dumps(j, ensure_ascii=False).encode('utf8').decode())
+    if not hashMap.containsKey("cards"):
+        hashMap.put("cards", json.dumps(j, ensure_ascii=False).encode('utf8').decode())
 
     return hashMap
 
 
 def custom_card_on_tap(hashMap, _files=None, _data=None):
-    pass
+    # hashMap.put("toast", "res=" + str(
+    #     hashMap.get("listener") + "/" + str(hashMap.get("layout_listener")) + "/" + str(
+    #         hashMap.get("card_data")) + str(hashMap.get("cardsdata")) + "/" + str(
+    #         hashMap.get("cards")
+    #     )))
+    # cards = json.loads(hashMap.get("cards"))
+    # keys = []
+    # for rec in cards["customcards"]["cardsdata"]:
+    #     keys.append(rec["key"])
+    #
+    # hashMap.put("toast", "key=" + str(keys))
+    # hashMap.put("toast", "selected=" + str(hashMap.get("selected_card_key")))
+
+    hashMap.put("selected", str(hashMap.get("selected_card_key")))
+    hashMap.put("ShowScreen", "Карточка птицы")
+
+    return hashMap
 
 
 def on_add(hashMap, _files=None, _data=None):
